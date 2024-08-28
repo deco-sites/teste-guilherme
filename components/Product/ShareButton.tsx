@@ -2,7 +2,7 @@ const ShareButton = () => {
   const shareOnWhatsApp = () => {
     const message = encodeURIComponent("Confira este produto incrível!");
     const url = "https://example.com/product-page";
-    window.open(`https://wa.me/?text=${message} ${url}`, "_blank");
+    globalThis.open(`https://wa.me/?text=${message} ${url}`, "_blank");
   };
 
   return (

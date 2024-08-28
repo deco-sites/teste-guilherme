@@ -1,14 +1,10 @@
-interface AddToCartButtonProps {
-  selectedSKU: any;
-  quantityItems: any;
-  updateSKU: any;
-}
+import { IAddToCartButtonProps } from "site/@types/Product/index.tsx";
 
 const AddToCartButton = ({
   selectedSKU,
   quantityItems,
   updateSKU,
-}: AddToCartButtonProps) => {
+}: IAddToCartButtonProps) => {
   const handleAddToCart = () => {
     if (selectedSKU.value) {
       updateSKU.value = selectedSKU.value;

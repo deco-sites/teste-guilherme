@@ -1,16 +1,13 @@
-interface MobileDrawerProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+import { IMobileDrawerProps } from "site/@types/Header/index.tsx";
 
-const MobileDrawer = ({ isOpen, onClose }: MobileDrawerProps) => {
+const MobileDrawer = ({ isOpen, onClose }: IMobileDrawerProps) => {
   return (
     <div
-      className={`fixed inset-0 z-50 transform ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      } transition-transform duration-300 ease-in-out bg-white shadow-lg`}
+      className={`fixed inset-0 top-0 h-max z-50 bg-zinc-400 shadow-lg transform  ${
+        isOpen ? "translate-y-0" : "-translate-y-full"
+      } transition-transform duration-300 ease-in-out`}
     >
-      <div className="p-4">
+      <div className="flex flex-col p-4 h-full">
         <button onClick={onClose} className="mb-8">
           <svg
             className="w-6 h-6 text-gray-800"

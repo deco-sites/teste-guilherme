@@ -1,15 +1,16 @@
 import { useUI } from "site/islands/useUI.ts";
-import { useState, useEffect } from "preact/hooks";
+import { useEffect } from "preact/hooks";
 import MobileDrawer from "site/components/Header/MobileDrawer.tsx";
 import CartDrawer from "site/components/Header/CartDrawer.tsx";
 import Navbar from "site/components/Header/Navbar.tsx";
+import { IHeaderLoginAndCart, IHeaderNavbar } from "../@types/Header/index.tsx";
 
 export function HeaderNavbar({
   lastScrollY,
   showHeader,
   quantityItems,
   updateSKU,
-}: any) {
+}: IHeaderNavbar) {
   const controlHeader = () => {
     if (globalThis.scrollY > lastScrollY.value) {
       showHeader.value = false;
@@ -88,8 +89,12 @@ export function HeaderLogo() {
     </>
   );
 }
-export function HeaderLoginAndCart({ quantityItems, updateSKU }: any) {
-  const { isCartOpen, selectedSKU } = useUI();
+
+export function HeaderLoginAndCart({
+  quantityItems,
+  updateSKU,
+}: IHeaderLoginAndCart) {
+  const { isCartOpen } = useUI();
 
   return (
     <>

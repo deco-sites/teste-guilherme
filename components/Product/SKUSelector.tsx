@@ -1,11 +1,7 @@
-import { useSignal } from "@preact/signals";
 import { sizes } from "site/helpers/mock.ts";
+import { ISKUSelectorProps } from "site/@types/Product/index.tsx";
 
-interface SKUSelectorProps {
-  selectedSKU: any;
-}
-
-const SKUSelector = ({ selectedSKU }: SKUSelectorProps) => {
+const SKUSelector = ({ selectedSKU }: ISKUSelectorProps) => {
   return (
     <div className="mb-4">
       <h2 className="text-lg font-semibold text-gray-800">
