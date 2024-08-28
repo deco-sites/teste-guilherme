@@ -14,17 +14,13 @@ export function ProductSKUSelector({ selectedSKU }: ISKUSelectorProps) {
 
 export function ProductAddToCartButton({
   selectedSKU,
-  quantityItems,
-  updateSKU,
   cartItems,
 }: IProductAddToCartButton) {
   const { isCartOpen } = useUI();
 
   return (
     <AddToCartButton
-      quantityItems={quantityItems}
       selectedSKU={selectedSKU}
-      updateSKU={updateSKU}
       isCartOpen={isCartOpen}
       cartItems={cartItems}
     />

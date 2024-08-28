@@ -14,8 +14,7 @@ import {
 } from "site/helpers/mock.ts";
 
 const ProductInfo = () => {
-  const { selectedSKU, selectedImage, quantityItems, updateSKU, cartItems } =
-    useUI();
+  const { selectedSKU, selectedImage, cartItems } = useUI();
 
   return (
     <div className="flex flex-col lg:flex-row gap-6">
@@ -56,8 +55,6 @@ const ProductInfo = () => {
         <div className="flex items-center space-x-4 mt-12">
           <ProductAddToCartButton
             selectedSKU={selectedSKU}
-            quantityItems={quantityItems}
-            updateSKU={updateSKU}
             cartItems={cartItems}
           />
           <ShareButton />

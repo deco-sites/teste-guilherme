@@ -24,8 +24,6 @@ export interface IAddToCartButton {
 }
 export interface IProductAddToCartButton {
   selectedSKU: Signal<string>;
-  quantityItems: Signal<number>;
-  updateSKU: Signal<string>;
   cartItems: Signal<
     {
       sku: string;
