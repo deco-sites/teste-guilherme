@@ -5,11 +5,14 @@ export interface IAddToCartButtonProps {
   selectedSKU: Signal<string>;
   quantityItems: Signal<number>;
   updateSKU: Signal<string>;
+  cartItems: Signal<any[]>
+  
 }
 export interface IProductAddToCartButton {
   selectedSKU: Signal<string>;
   quantityItems: Signal<number>;
   updateSKU: Signal<string>;
+  cartItems: Signal<any[]>
 }
 
 export interface ISKUSelectorProps {

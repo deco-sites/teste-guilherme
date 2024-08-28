@@ -16,6 +16,7 @@ export function ProductAddToCartButton({
   selectedSKU,
   quantityItems,
   updateSKU,
+  cartItems,
 }: IProductAddToCartButton) {
   const { isCartOpen } = useUI();
 
@@ -25,6 +26,7 @@ export function ProductAddToCartButton({
       selectedSKU={selectedSKU}
       updateSKU={updateSKU}
       isCartOpen={isCartOpen}
+      cartItems={cartItems}
     />
   );
 }

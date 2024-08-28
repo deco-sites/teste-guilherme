@@ -2,7 +2,7 @@ import { HeaderNavbar } from "site/islands/HeaderIsland.tsx";
 import { useUI } from "site/islands/useUI.ts";
 
 const Header = () => {
-  const { lastScrollY, showHeader, quantityItems, updateSKU } = useUI();
+  const { lastScrollY, showHeader, quantityItems, updateSKU,cartItems } = useUI();
 
   return (
     <header>
@@ -11,6 +11,7 @@ const Header = () => {
         showHeader={showHeader}
         quantityItems={quantityItems}
         updateSKU={updateSKU}
+        cartItems={cartItems}
       />
     </header>
   );

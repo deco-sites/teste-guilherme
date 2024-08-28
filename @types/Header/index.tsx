@@ -5,6 +5,7 @@ export interface ICartDrawerProps {
   onClose: () => void;
   updateSKU: string;
   quantityItems: number;
+  cartItems: Signal<any[]>;
 }
 
 export interface IMobileDrawerProps {
@@ -17,8 +18,10 @@ export interface IHeaderNavbar {
   showHeader: Signal<boolean>;
   quantityItems: Signal<number>;
   updateSKU: Signal<string>;
+  cartItems: Signal<any[]>;
 }
 export interface IHeaderLoginAndCart {
   quantityItems: Signal<number>;
   updateSKU: Signal<string>;
+  cartItems: Signal<any[]>;
 }

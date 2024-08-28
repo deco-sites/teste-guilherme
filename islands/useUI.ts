@@ -8,6 +8,7 @@ const selectedSKU = signal("");
 const updateSKU = signal("");
 const selectedImage = signal(0);
 const quantityItems = signal(0);
+const cartItems = signal([]);
 
 const state = {
   showHeader,
@@ -18,6 +19,7 @@ const state = {
   updateSKU,
   selectedImage,
   quantityItems,
+  cartItems
 };
 
 export const useUI = () => state;

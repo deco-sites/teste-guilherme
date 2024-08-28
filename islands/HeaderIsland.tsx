@@ -10,6 +10,7 @@ export function HeaderNavbar({
   showHeader,
   quantityItems,
   updateSKU,
+  cartItems
 }: IHeaderNavbar) {
   const controlHeader = () => {
     if (globalThis.scrollY > lastScrollY.value) {
@@ -46,6 +47,7 @@ export function HeaderNavbar({
           <HeaderLoginAndCart
             quantityItems={quantityItems}
             updateSKU={updateSKU}
+            cartItems={cartItems}
           />
         </div>
       </header>
@@ -132,6 +134,7 @@ export function HeaderLogo() {
 export function HeaderLoginAndCart({
   quantityItems,
   updateSKU,
+  cartItems,
 }: IHeaderLoginAndCart) {
   const { isCartOpen } = useUI();
 
@@ -142,6 +145,7 @@ export function HeaderLoginAndCart({
         onClose={() => (isCartOpen.value = false)}
         updateSKU={updateSKU.value}
         quantityItems={quantityItems.value}
+        cartItems={cartItems}
       />
 
       <div className="flex items-center space-x-2">

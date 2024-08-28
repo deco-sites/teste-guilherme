@@ -4,8 +4,7 @@ import { ICartDrawerProps } from "site/@types/Header/index.tsx";
 const CartDrawer = ({
   isOpen,
   onClose,
-  updateSKU,
-  quantityItems,
+  cartItems,
 }: ICartDrawerProps) => {
   const productPrice = 199;
   return (
@@ -14,7 +13,7 @@ const CartDrawer = ({
         isOpen ? "translate-x-0" : "translate-x-full"
       } transition-transform duration-300 ease-in-out`}
     >
-      {quantityItems > 0 ? (
+      {cartItems.value.length > 0 ? (
         <div className="flex flex-col p-4 h-full">
           <button onClick={onClose} className="mb-4 self-end">
             <svg
@@ -33,12 +32,18 @@ const CartDrawer = ({
             </svg>
           </button>
           <div className="flex-1 overflow-y-auto">
-            <p className="text-gray-800">{productName}</p>
-            <p className="text-gray-800">Tamanho: {updateSKU}</p>
-            <p>Preço: R$ {productPrice},00</p>
-            <p>Quantidade: {quantityItems}</p>
+            {cartItems.value.map((item, index) => (
+              <div key={index} className="mb-4">
+                <p className="text-gray-800">{productName}</p>
+                <p className="text-gray-800">Tamanho: {item.sku}</p>
+                <p>Preço: R$ {productPrice},00</p>
+                <p>Quantidade: {item.quantity}</p>
+              </div>
+            ))}
             <div className="border-t mt-4 text-gray-800">
-              <p>Total: R$ {productPrice * quantityItems},00</p>
+              <p>
+                Total: R$ {productPrice * cartItems.value.reduce((sum, item) => sum + item.quantity, 0)},00
+              </p>
             </div>
           </div>
         </div>
@@ -62,7 +67,7 @@ const CartDrawer = ({
           </button>
 
           <div className="flex-1 ">
-            <span class={"text-lg font-semibold"}>
+            <span class="text-lg font-semibold">
               Não tem nada por aqui 😢
             </span>
           </div>
