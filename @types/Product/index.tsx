@@ -1,6 +1,12 @@
 import { Signal } from "@preact/signals";
 
 export interface IAddToCartButtonProps {
+  isCartOpen: Signal<boolean>;
+  selectedSKU: Signal<string>;
+  quantityItems: Signal<number>;
+  updateSKU: Signal<string>;
+}
+export interface IProductAddToCartButton {
   selectedSKU: Signal<string>;
   quantityItems: Signal<number>;
   updateSKU: Signal<string>;
@@ -16,5 +22,8 @@ export interface IProductSelectedImage {
 }
 export interface IProductViewImage {
   selectedImage: Signal<number>;
-  images: string;
+  images: string[];
+}
+export interface IProductInfo {
+  isCartOpen: Signal<boolean>;
 }

@@ -1,11 +1,12 @@
 import SKUSelector from "site/components/Product/SKUSelector.tsx";
 import AddToCartButton from "site/components/Product/AddToCartButton.tsx";
 import {
-  IAddToCartButtonProps,
+  IProductAddToCartButton,
   IProductSelectedImage,
   IProductViewImage,
   ISKUSelectorProps,
 } from "site/@types/Product/index.tsx";
+import { useUI } from "site/islands/useUI.ts";
 
 export function ProductSKUSelector({ selectedSKU }: ISKUSelectorProps) {
   return <SKUSelector selectedSKU={selectedSKU} />;
@@ -15,12 +16,15 @@ export function ProductAddToCartButton({
   selectedSKU,
   quantityItems,
   updateSKU,
-}: IAddToCartButtonProps) {
+}: IProductAddToCartButton) {
+  const { isCartOpen } = useUI();
+
   return (
     <AddToCartButton
       quantityItems={quantityItems}
       selectedSKU={selectedSKU}
       updateSKU={updateSKU}
+      isCartOpen={isCartOpen}
     />
   );
 }

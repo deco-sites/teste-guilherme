@@ -4,14 +4,13 @@ const AddToCartButton = ({
   selectedSKU,
   quantityItems,
   updateSKU,
+  isCartOpen,
 }: IAddToCartButtonProps) => {
   const handleAddToCart = () => {
     if (selectedSKU.value) {
       updateSKU.value = selectedSKU.value;
       quantityItems.value += 1;
-      console.log(
-        `Adicionando ao carrinho: SKU ${selectedSKU.value} - Quantidade: ${quantityItems.value}`
-      );
+      isCartOpen.value = true;
     } else {
       alert("Por favor, selecione um tamanho.");
     }
