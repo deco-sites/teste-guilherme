@@ -5,14 +5,33 @@ export interface IAddToCartButtonProps {
   selectedSKU: Signal<string>;
   quantityItems: Signal<number>;
   updateSKU: Signal<string>;
-  cartItems: Signal<any[]>
-  
+  cartItems: Signal<
+    {
+      sku: string;
+      quantity: number;
+    }[]
+  >;
+}
+export interface IAddToCartButton {
+  isCartOpen: Signal<boolean>;
+  selectedSKU: Signal<string>;
+  cartItems: Signal<
+    {
+      sku: string;
+      quantity: number;
+    }[]
+  >;
 }
 export interface IProductAddToCartButton {
   selectedSKU: Signal<string>;
   quantityItems: Signal<number>;
   updateSKU: Signal<string>;
-  cartItems: Signal<any[]>
+  cartItems: Signal<
+    {
+      sku: string;
+      quantity: number;
+    }[]
+  >;
 }
 
 export interface ISKUSelectorProps {

@@ -1,12 +1,9 @@
 import { productName } from "site/helpers/mock.ts";
 import { ICartDrawerProps } from "site/@types/Header/index.tsx";
 
-const CartDrawer = ({
-  isOpen,
-  onClose,
-  cartItems,
-}: ICartDrawerProps) => {
+const CartDrawer = ({ isOpen, onClose, cartItems }: ICartDrawerProps) => {
   const productPrice = 199;
+
   return (
     <div
       className={`fixed right-0 top-0 h-screen z-50 w-80 bg-zinc-400 shadow-lg transform ${
@@ -32,8 +29,8 @@ const CartDrawer = ({
             </svg>
           </button>
           <div className="flex-1 overflow-y-auto">
-            {cartItems.value.map((item, index) => (
-              <div key={index} className="mb-4">
+            {cartItems.value.map((item) => (
+              <div key={item.sku} className="mb-4">
                 <p className="text-gray-800">{productName}</p>
                 <p className="text-gray-800">Tamanho: {item.sku}</p>
                 <p>Preço: R$ {productPrice},00</p>
@@ -42,7 +39,12 @@ const CartDrawer = ({
             ))}
             <div className="border-t mt-4 text-gray-800">
               <p>
-                Total: R$ {productPrice * cartItems.value.reduce((sum, item) => sum + item.quantity, 0)},00
+                Total: R${" "}
+                {cartItems.value.reduce(
+                  (total, item) => total + productPrice * item.quantity,
+                  0
+                )}
+                ,00
               </p>
             </div>
           </div>
@@ -65,9 +67,8 @@ const CartDrawer = ({
               ></path>
             </svg>
           </button>
-
           <div className="flex-1 ">
-            <span class="text-lg font-semibold">
+            <span className={"text-lg font-semibold"}>
               Não tem nada por aqui 😢
             </span>
           </div>
