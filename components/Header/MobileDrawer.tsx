@@ -3,7 +3,7 @@ import { IMobileDrawerProps } from "site/@types/Header/index.tsx";
 const MobileDrawer = ({ isOpen, onClose }: IMobileDrawerProps) => {
   return (
     <div
-      className={`fixed inset-0 top-0 h-max z-50 bg-zinc-300 shadow-lg transform  ${
+      className={`fixed inset-0 top-0 h-max z-50 bg-zinc-300 shadow-lg transform ${
         isOpen ? "translate-y-0" : "-translate-y-full"
       } transition-transform duration-300 ease-in-out`}
     >
@@ -25,21 +25,31 @@ const MobileDrawer = ({ isOpen, onClose }: IMobileDrawerProps) => {
           </svg>
         </button>
         <nav className="space-y-4">
-          <a href="#home" className="block text-gray-800 hover:text-gray-600">
+          <a
+            href="#home"
+            className="block text-gray-800 hover:text-gray-600"
+            onClick={onClose}
+          >
             Home
           </a>
-          <a href="#about" className="block text-gray-800 hover:text-gray-600">
+          <a
+            href="#about"
+            className="block text-gray-800 hover:text-gray-600"
+            onClick={onClose}
+          >
             About
           </a>
           <a
             href="#services"
             className="block text-gray-800 hover:text-gray-600"
+            onClick={onClose}
           >
             Services
           </a>
           <a
             href="#contact"
             className="block text-gray-800 hover:text-gray-600"
+            onClick={onClose}
           >
             Contact
           </a>

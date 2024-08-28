@@ -10,7 +10,7 @@ export function HeaderNavbar({
   showHeader,
   quantityItems,
   updateSKU,
-  cartItems
+  cartItems,
 }: IHeaderNavbar) {
   const controlHeader = () => {
     if (globalThis.scrollY > lastScrollY.value) {
@@ -39,10 +39,13 @@ export function HeaderNavbar({
             : "transform -translate-y-full"
         }`}
       >
-        <div className="flex items-center justify-between px-4 py-2">
+        <div className="flex items-center justify-between px-4 py-2 md:px-8 md:py-4">
           <HeaderLogo />
 
-          <Navbar />
+          {/* Esconder Navbar em telas menores */}
+          <div className="hidden md:block">
+            <Navbar />
+          </div>
 
           <HeaderLoginAndCart
             quantityItems={quantityItems}
@@ -65,6 +68,7 @@ export function HeaderLogo() {
       />
 
       <div className="flex items-center">
+        {/* Botão para abrir o Mobile Drawer em telas menores */}
         <button
           onClick={() => (isMobileMenuOpen.value = true)}
           className="md:hidden mr-4"
@@ -84,6 +88,8 @@ export function HeaderLogo() {
             ></path>
           </svg>
         </button>
+
+        {/* Logo */}
         <a href="/" className="text-2xl font-bold text-gray-800">
           <svg
             width="80px"
