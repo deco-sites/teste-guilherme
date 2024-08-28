@@ -3,8 +3,8 @@ import { IMobileDrawerProps } from "site/@types/Header/index.tsx";
 const MobileDrawer = ({ isOpen, onClose }: IMobileDrawerProps) => {
   return (
     <div
-      className={`fixed inset-0 top-0 h-max z-50 bg-zinc-300 shadow-lg transform ${
-        isOpen ? "translate-y-0" : "-translate-y-full"
+      className={`fixed left-0 top-0 h-screen z-50 w-80 bg-zinc-300 shadow-xl transform ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out`}
     >
       <div className="flex flex-col p-4 h-full">
