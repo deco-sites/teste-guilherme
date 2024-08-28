@@ -1,4 +1,6 @@
 import { useSection } from "deco/hooks/useSection.ts";
+import Header from "site/components/Header/Header.tsx";
+import Product from "site/components/Product/Product.tsx";
 
 export interface Props {
   /**
@@ -20,44 +22,11 @@ export default function Section({ name = "It Works!", count = 0 }: Props) {
   const upLink = useSection({ props: { count: count + 1 } });
 
   return (
-    <div
-      id="it-works"
-      class="container py-10 flex flex-col h-screen w-full items-center justify-center gap-16"
-    >
-      <div
-        class="leading-10 text-6xl"
-        dangerouslySetInnerHTML={{
-          __html: name,
-        }}
-      />
+    <div className="flex py-4 flex flex-col h-screen w-full">
+      <Header />
 
-      <div class="flex flex-col items-center justify-center gap-2">
-        <div class="flex items-center gap-4">
-          <button
-            hx-target="#it-works"
-            hx-swap="outerHTML"
-            hx-get={downLink} // htmx link for this section with the down vote props
-            class="btn btn-sm btn-circle btn-outline no-animation"
-          >
-            <span class="inline [.htmx-request_&]:hidden">
-              -
-            </span>
-            <span class="loading loading-spinner hidden [.htmx-request_&]:inline" />
-          </button>
-          <span>{count}</span>
-          <button
-            hx-target="#it-works"
-            hx-swap="outerHTML"
-            hx-get={upLink} // htmx link for this section with the up vote props
-            class="btn btn-sm btn-circle btn-outline no-animation"
-          >
-            <span class="inline [.htmx-request_&]:hidden">
-              +
-            </span>
-            <span class="loading loading-spinner hidden [.htmx-request_&]:inline" />
-          </button>
-        </div>
-        <div class="text-sm">Powered by HTMX</div>
+      <div className="flex items-center justify-center gap-2 py-10">
+        <Product />
       </div>
     </div>
   );
